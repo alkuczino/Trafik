@@ -5,7 +5,7 @@
 class Road : public NotMoving {
 public:
 	Road();
-	Road(int x, int y, int w, int h);
+	Road(int x, int y);
 private:
 	
 	

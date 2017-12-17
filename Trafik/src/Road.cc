@@ -5,8 +5,8 @@ Road::Road()
 	setPixmap(QPixmap("resources/road.png"));
 }
 
-Road::Road(int x, int y, int w, int h)
+Road::Road(int x, int y)
 {
 	setPixmap(QPixmap("resources/road.png"));
-	setPos(0, 500);
+	setPos(x, y);
 }

@@ -6,8 +6,9 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <QGraphicsScene>
+#include <QPixMap>
 
-class Moving: public QGraphicsRectItem {
+class Moving: public QGraphicsPixmapItem {
 public:
 	Moving();
 private:

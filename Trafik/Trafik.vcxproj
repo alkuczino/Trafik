@@ -85,7 +85,7 @@
     <ClCompile Include="src\NotMoving.cc" />
     <ClCompile Include="src\Pedestrian.cc" />
     <ClCompile Include="src\Road.cc" />
-    <ClCompile Include="src\Trafik.cc" />
+    <ClCompile Include="src\Simulator.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera.h" />
@@ -96,6 +96,7 @@
     <ClInclude Include="src\NotMoving.h" />
     <ClInclude Include="src\Pedestrian.h" />
     <ClInclude Include="src\Road.h" />
+    <ClInclude Include="src\Simulator.h" />
     <CustomBuild Include="src\Car.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Car.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
@@ -106,6 +107,10 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\car.png" />
+    <Image Include="Resources\road.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

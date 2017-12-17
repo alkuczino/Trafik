@@ -2,10 +2,11 @@
 
 Road::Road()
 {
-	setRect(0, 0, 100, 100);
+	setPixmap(QPixmap("resources/road.png"));
 }
 
 Road::Road(int x, int y, int w, int h)
-{setRect(x, y, w, h);
-
+{
+	setPixmap(QPixmap("resources/road.png"));
+	setPos(0, 500);
 }

@@ -2,17 +2,24 @@
 
 
 Car::Car():timer_(new QTimer)
-{
-		setRect(0, 0, 100, 100);
+{	
+	
+	setPixmap(QPixmap("resources/car.png"));
+	
+	setPos(300, 0);
+		//setRect(0, 0, 100, 100);
 		
 		connect(timer_, SIGNAL(timeout()), this, SLOT(move()));
-		timer_->start(50);
+		timer_->start(25);
 	}
 
 Car::Car(int x, int y):timer_(new QTimer) {
-	setRect(x, y, 100, 100);
+	setPixmap(QPixmap("resources/car.png"));
+	setPos(0, 0);
+	
+	//setRect(x, y, 100, 100);
 	connect(timer_, SIGNAL(timeout()), this, SLOT(move()));
-	timer_->start(50);
+	timer_->start(25);
 	
 
 }
@@ -33,10 +40,9 @@ Car::Car(int x, int y):timer_(new QTimer) {
 }*/
 
 void Car::move() {
-	setPos(x(), y() + 10);
-	if (pos().y() < 0-y()-this->rect().height()) {
+	setPos(x(), y() + 5);
+	if (pos().y() < 0-y()-this->pixmap().height()) {
 		scene()->removeItem(this);	
 		delete this;
 	}
-
 }

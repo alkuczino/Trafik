@@ -6,7 +6,7 @@ class Config {
 public:
 	Config();
 
-	Config(Map* map, class Simulator* simulator);
+	Config(Map* map,class Simulator* simulator);
 private:
 	
 

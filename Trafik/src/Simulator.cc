@@ -4,7 +4,7 @@ Simulator::Simulator()
 {
 	scene_ = new QGraphicsScene;
 	map_ = new Map;
-	Road* tmp3 = new Road(0, 500);
+	/*Road* tmp3 = new Road(0, 500);
 	map_->addNotMoving(*tmp3);
 	//std::unique_ptr<Car> rect = std::make_unique<Car>();
 	Car* tmpCar = new Car();
@@ -22,7 +22,7 @@ Simulator::Simulator()
 	scene_->addItem(map_->getMoving().front());
 	scene_->addItem(map_->getMoving()[1]);
 
-
+	*/
 	//QGraphicsView* view = new QGraphicsView(scene_);
 	//view->show();
 	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -36,4 +36,9 @@ Simulator::Simulator()
 void Simulator::loadConfig()
 {
 	config_ = new Config(map_, this);
+}
+
+QGraphicsScene * Simulator::getScene()
+{
+	return scene_;
 }

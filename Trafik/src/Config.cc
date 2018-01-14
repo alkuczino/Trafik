@@ -15,11 +15,11 @@ Config::Config(Map * map,Simulator * simulator){
 		}
 	}
 	
-	Car* tmpCar = new Car(simulator->width() / 2 - 80,simulator->height(),0,-5);
+	Car* tmpCar = new Car(simulator->width() / 2 - 80,simulator->height(),0,0);
 	map->addMoving(*tmpCar);
 	simulator->getScene()->addItem(tmpCar);
 	
-	Car* tmpCar2 = new Car(simulator->width() / 2, 0, 0, 5);
+	Car* tmpCar2 = new Car(simulator->width() / 2, 0, 0, 0);
 	map->addMoving(*tmpCar2);
 	simulator->getScene()->addItem(tmpCar2);
 	

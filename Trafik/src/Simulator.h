@@ -12,7 +12,9 @@ const int RES_Y = 800;
 class Simulator : public QGraphicsView {
 public:
 	Simulator();
+
 	void loadConfig();
+
 	QGraphicsScene* getScene();
 private:
 	QGraphicsScene * scene_;

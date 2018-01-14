@@ -8,9 +8,10 @@ Q_OBJECT
 public:
 	Car();
 	Car(int x, int y, int velX,int velY);
-	//void keyPressEvent(QKeyEvent *event);
 public slots:
 	void move();
+	void turnLeft();
+	void turnRight();
 private:
 	QTimer * timer_;
 	int velX_, velY_;

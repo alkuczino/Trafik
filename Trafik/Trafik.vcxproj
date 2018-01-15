@@ -92,7 +92,6 @@
     <ClCompile Include="src\Car.cc" />
     <ClCompile Include="src\Config.cc" />
     <ClCompile Include="src\Editor.cc" />
-    <ClCompile Include="src\Element.cc" />
     <ClCompile Include="src\main.cc" />
     <ClCompile Include="src\Map.cc" />
     <ClCompile Include="src\Moving.cc" />
@@ -114,7 +113,6 @@
     </CustomBuild>
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Config.h" />
-    <ClInclude Include="src\Element.h" />
     <CustomBuild Include="src\Editor.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Editor.h...</Message>

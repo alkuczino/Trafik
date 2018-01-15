@@ -2,6 +2,7 @@
 #include "Moving.h"
 #include "Map.h"
 #include <QGraphicsScene>
+const int CAR_WIDTH = 40, CAR_HEIGHT = 50;
 
 class Car :public QObject, public Moving {
 Q_OBJECT

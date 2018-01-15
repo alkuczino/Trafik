@@ -2,9 +2,12 @@
 
 void Editor::addButtons() {
 	buttons_->addStartButton(*this);
+	buttons_->addCarButton(*this);
+	buttons_->addRoadButton(*this);
 }
 
 Editor::Editor() {
+	running_ = false;
 	scene_ = new QGraphicsScene;
 	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -20,7 +23,24 @@ Editor::Editor() {
 }
 
 void Editor::startClicked() {
-	Simulator* simulator = new Simulator;
-	simulator->loadConfig();
-	simulator->show();
+	if (!running_) {
+		running_ = true;
+		simulator_ = new Simulator;
+		simulator_->loadConfig();
+		simulator_->show();
+	}
+}
+
+void Editor::carClicked(){
+	simulator_->setCarClicked(true);
+
+	}
+
+void Editor::roadClicked() {
+	simulator_->setRoadClicked(true);
+}
+
+QGraphicsScene* Editor::getScene()
+{
+	return scene_;
 }

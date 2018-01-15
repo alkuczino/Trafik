@@ -14,13 +14,15 @@ public:
 	void addCarButton(Editor&);
 	void addCameraButton(Editor&);
 	void removeButton(Editor&);
+	void addRoadButton(Editor&);
 
 //public slots:
 //	void startClicked();
 
 private:
 	QPushButton* startButton_;
-	QPushButton* addCar_;
-	QPushButton* addCamera_;
-	QPushButton* remove_;
+	QPushButton* carButton_;
+	QPushButton* cameraButton_;
+	QPushButton* removeButton_;
+	QPushButton* roadButton_;
 };

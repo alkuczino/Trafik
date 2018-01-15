@@ -14,14 +14,18 @@ class Editor: public QGraphicsView {
 public:
 	Editor();
 	void addButtons();
-
+	//void deleteSimulator();
 	public slots:
 	void startClicked();
-	
+	void carClicked();
+	void roadClicked();
+	QGraphicsScene* getScene();
 
 private:
 
 	QGraphicsScene* scene_;
+	Simulator* simulator_;
 	Buttons* buttons_;
+	bool running_;
 	
 };

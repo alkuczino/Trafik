@@ -45,9 +45,6 @@
     <ClCompile Include="src\Camera.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Element.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Map.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -104,9 +101,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Map.h">

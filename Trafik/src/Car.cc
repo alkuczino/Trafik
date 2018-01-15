@@ -15,7 +15,6 @@ Car::Car():timer_(new QTimer)
 Car::Car(int x, int y, int velX, int velY):timer_(new QTimer),velX_(velX),velY_(velY) {
 	setPixmap(QPixmap("resources/car.png"));
 	setPos(x, y);
-	
 	connect(timer_, SIGNAL(timeout()), this, SLOT(move()));
 	timer_->start(25);
 	
@@ -26,7 +25,7 @@ void Car::move() {
 	setPos(x()+ velX_, y() + velY_);
 	const qreal angle = 90;
 	
-		turnLeft();
+		//turnLeft();
 	
 	if (velY_<0&&pos().y() < 0-y()-this->pixmap().height()) {
 		velX_ = 0;

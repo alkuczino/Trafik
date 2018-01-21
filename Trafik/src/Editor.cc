@@ -4,6 +4,7 @@ void Editor::addButtons() {
 	buttons_->addStartButton(*this);
 	buttons_->addCarButton(*this);
 	buttons_->addRoadButton(*this);
+	buttons_->addJunctionButton(*this);
 }
 
 Editor::Editor() {
@@ -13,7 +14,7 @@ Editor::Editor() {
 	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	setFixedSize(EDITOR_X, EDITOR_Y);
 	setScene(scene_);
-	scene_->setSceneRect(300, 0, EDITOR_X, EDITOR_Y);
+	scene_->setSceneRect(500, 0, EDITOR_X, EDITOR_Y);
 	buttons_ = new Buttons();
 	addButtons();
 
@@ -29,6 +30,10 @@ void Editor::startClicked() {
 		simulator_->loadConfig();
 		simulator_->show();
 	}
+}
+
+void Editor::junctionClicked() {
+	simulator_->setJunctionClicked(true);
 }
 
 void Editor::carClicked(){

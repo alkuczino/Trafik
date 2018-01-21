@@ -12,9 +12,15 @@ void Buttons::addStartButton(Editor& editor)
 
 void Buttons::addCarButton(Editor& editor)
 {
-	carButton_ = new QPushButton("CAR", &editor);
+	carButton_ = new QPushButton("SAMOCHOD", &editor);
 	carButton_->move(80, 0);
 	connect(carButton_, SIGNAL(clicked()), &editor, SLOT(carClicked()));
+}
+
+void Buttons::addJunctionButton(Editor& editor) {
+	junctionButton_ = new QPushButton("SKRZYZOWANIE", &editor);
+	junctionButton_->move(240, 0);
+	connect(junctionButton_, SIGNAL(clicked()), &editor, SLOT(junctionClicked()));
 }
 
 void Buttons::addCameraButton(Editor& editor)
@@ -27,7 +33,7 @@ void Buttons::removeButton(Editor& editor)
 }
 
 void Buttons::addRoadButton(Editor& editor) {
-	roadButton_ = new QPushButton("ROAD", &editor);
+	roadButton_ = new QPushButton("DROGA", &editor);
 	roadButton_->move(160, 0);
 	connect(roadButton_, SIGNAL(clicked()), &editor, SLOT(roadClicked()));
 }

@@ -15,9 +15,7 @@ public:
 	void addCameraButton(Editor&);
 	void removeButton(Editor&);
 	void addRoadButton(Editor&);
-
-//public slots:
-//	void startClicked();
+	void addJunctionButton(Editor&);
 
 private:
 	QPushButton* startButton_;
@@ -25,4 +23,5 @@ private:
 	QPushButton* cameraButton_;
 	QPushButton* removeButton_;
 	QPushButton* roadButton_;
+	QPushButton* junctionButton_;
 };

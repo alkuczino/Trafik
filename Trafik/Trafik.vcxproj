@@ -92,10 +92,13 @@
     <ClCompile Include="src\Car.cc" />
     <ClCompile Include="src\Config.cc" />
     <ClCompile Include="src\Editor.cc" />
+    <ClCompile Include="src\Grass.cc" />
+    <ClCompile Include="src\Junction.cc" />
     <ClCompile Include="src\main.cc" />
     <ClCompile Include="src\Map.cc" />
     <ClCompile Include="src\Moving.cc" />
     <ClCompile Include="src\NotMoving.cc" />
+    <ClCompile Include="src\Pavement.cc" />
     <ClCompile Include="src\Pedestrian.cc" />
     <ClCompile Include="src\Road.cc" />
     <ClCompile Include="src\Simulator.cc" />
@@ -123,6 +126,9 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_UITOOLS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtUiTools"</Command>
     </CustomBuild>
+    <ClInclude Include="src\Grass.h" />
+    <ClInclude Include="src\Pavement.h" />
+    <ClInclude Include="src\Junction.h" />
     <ClInclude Include="src\Map.h" />
     <ClInclude Include="src\Moving.h" />
     <ClInclude Include="src\NotMoving.h" />

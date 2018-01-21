@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QPixMap>
+#include <qmath.h>
 
 class Moving: public QGraphicsPixmapItem {
 public:

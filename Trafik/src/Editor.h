@@ -7,7 +7,7 @@
 
 class Buttons;
 
-const int EDITOR_X = 300, EDITOR_Y = 100;
+const int EDITOR_X = 500, EDITOR_Y = 100;
 
 class Editor: public QGraphicsView {
 	Q_OBJECT
@@ -19,6 +19,7 @@ public:
 	void startClicked();
 	void carClicked();
 	void roadClicked();
+	void junctionClicked();
 	QGraphicsScene* getScene();
 
 private:

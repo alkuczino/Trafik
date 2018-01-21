@@ -23,6 +23,13 @@ void Buttons::addJunctionButton(Editor& editor) {
 	connect(junctionButton_, SIGNAL(clicked()), &editor, SLOT(junctionClicked()));
 }
 
+void Buttons::addRoadVerticalButton(Editor & editor)
+{
+	roadVerticalButton_ = new QPushButton("DROGA WERTYKALNA", &editor);
+	roadVerticalButton_->move(400, 0);
+	connect(roadVerticalButton_, SIGNAL(clicked()), &editor, SLOT(roadVerticalClicked()));
+}
+
 void Buttons::addCameraButton(Editor& editor)
 {
 }

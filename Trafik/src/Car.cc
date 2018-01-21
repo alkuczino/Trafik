@@ -15,7 +15,8 @@ Car::Car():timer_(new QTimer)
 Car::Car(int x, int y, int velX, int velY):point_index_(0),timer_(new QTimer),velX_(velX),velY_(velY) {
 	setPixmap(QPixmap("resources/car.png"));
 	setPos(x, y);
-	points_ <<QPointF(1000, 200)<<QPointF(800, 700);
+	setTransformOriginPoint(this->boundingRect().center());
+	points_ <<QPointF(x, y+480)<<QPointF(x, y);
 	dest_ = points_[0];
 	
 	rotateToPoint(dest_);
@@ -27,36 +28,18 @@ Car::Car(int x, int y, int velX, int velY):point_index_(0),timer_(new QTimer),ve
 
 }
 
-//void Car::move() {
-//	setPos(x()+ velX_, y() + velY_);
-//	const qreal angle = 90;
+//void Car::turnLeft() {
+//	setPos(x() - 2, y() - 2);
+//	qreal angle = 1;
+//	if(this->rotation() - static_cast<qreal>(90) != 0)
+//	setRotation(this->rotation() - angle);
 //	
-//		//turnLeft();
-//	
-//	if (velY_<0&&pos().y() < 0-y()-this->pixmap().height()) {
-//		velX_ = 0;
-//		velY_ = 0;
-//	}
-//	else if (velY_>0&&pos().y()>700)
-//	{
-//		velX_ = 0;
-//		velY_ = 0;
-//	}
 //	
 //}
-
-void Car::turnLeft() {
-	setPos(x() - 2, y() - 2);
-	qreal angle = 1;
-	if(this->rotation() - static_cast<qreal>(90) != 0)
-	setRotation(this->rotation() - angle);
-	
-	
-}
-
-void Car::turnRight() {
-
-}
+//
+//void Car::turnRight() {
+//
+//}
 
 int Car::type() const {
 	return Type;
@@ -64,7 +47,8 @@ int Car::type() const {
 
 void Car::rotateToPoint(QPointF p) {
 	QLineF ln(pos(), p);
-	setRotation(-1*ln.angle());
+	qreal angle = ln.angle();
+	setRotation(-1*angle);
 }
 
 void Car::move() {

@@ -5,6 +5,7 @@ void Editor::addButtons() {
 	buttons_->addCarButton(*this);
 	buttons_->addRoadButton(*this);
 	buttons_->addJunctionButton(*this);
+	buttons_->addRoadVerticalButton(*this);
 }
 
 Editor::Editor() {
@@ -34,6 +35,11 @@ void Editor::startClicked() {
 
 void Editor::junctionClicked() {
 	simulator_->setJunctionClicked(true);
+}
+
+void Editor::roadVerticalClicked()
+{
+	simulator_->setRoadVerticalClicked(true);
 }
 
 void Editor::carClicked(){

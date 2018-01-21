@@ -16,6 +16,7 @@ public:
 	void removeButton(Editor&);
 	void addRoadButton(Editor&);
 	void addJunctionButton(Editor&);
+	void addRoadVerticalButton(Editor&);
 
 private:
 	QPushButton* startButton_;
@@ -24,4 +25,5 @@ private:
 	QPushButton* removeButton_;
 	QPushButton* roadButton_;
 	QPushButton* junctionButton_;
+	QPushButton* roadVerticalButton_;
 };

@@ -2,25 +2,22 @@
 
 Map::Map()
 {
+
 }
 
-void Map::addMoving(Moving& moving)
+void Map::addArrayItem(int x, int y, int type)
 {
-	Moving* tmp = &moving;
-	moving_.push_back(tmp);
+	array_[x][y] = type;
 }
 
-std::vector<Moving*> Map::getMoving()
-{
-	return moving_;
-}
 
-void Map::addNotMoving(NotMoving& notMoving){
-	NotMoving* tmp = &notMoving;
-	notMoving_.push_back(tmp);
-}
+//Map::addItem(QGraphicsItem* item)
+//{
+	//tmpItem_ = &item;
+	//if (tmpRoad_ = qgraphicsitem_cast<Road *>(tmpItem_)) {
+	//	array_[tmpRoad_->pos().x() / 40][tmpRoad_->pos().y() / 40] = 1;
+	//}
+//}
 
-std::vector<NotMoving*> Map::getNotMoving()
-{
-	return notMoving_;
-}
+
+

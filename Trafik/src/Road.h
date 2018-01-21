@@ -7,6 +7,7 @@ class Road : public NotMoving {
 public:
 	Road();
 	Road(int x, int y);
+	//Road(int x, int y, Map map);
 	void mouseReleaseEvent(QMouseEvent* event);
 	enum {Type = UserType + 1};
 private:

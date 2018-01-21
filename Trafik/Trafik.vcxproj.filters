@@ -93,6 +93,9 @@
     <ClCompile Include="src\Grass.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\RoadVertical.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\Car.h">
@@ -137,6 +140,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Grass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RoadVertical.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

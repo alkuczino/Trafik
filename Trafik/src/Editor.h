@@ -20,6 +20,7 @@ public:
 	void carClicked();
 	void roadClicked();
 	void junctionClicked();
+	void roadVerticalClicked();
 	QGraphicsScene* getScene();
 
 private:

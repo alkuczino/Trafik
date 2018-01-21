@@ -11,11 +11,16 @@
 #include "Config.h"
 #include "Grass.h"
 #include "RoadVertical.h"
+#include <iterator>
+#include <algorithm>
+#include <list>
+#include <tuple>
 
 const int RES_X = 1280;
 const int RES_Y = 960;
-enum {GRASS, PAVEMENT, ROAD_LEFT, ROAD_RIGHT, JUNCTION};
+enum {GRASS=-2, PAVEMENT=-1, ROAD_LEFT=1, ROAD_RIGHT=2};
 class Config;
+
 
 class Simulator : public QGraphicsView {
 public:
@@ -36,6 +41,8 @@ public:
 	void addPavementToMap(int x, int y);
 	void addGrassToMap(int x, int y);
 	void addRoadVerticalToMap(int x, int y);
+	QList<QPointF> calculatePath(Car* car, QPointF p);
+
 	QGraphicsScene* getScene();
 
 	void mouseReleaseEvent(QMouseEvent* event);

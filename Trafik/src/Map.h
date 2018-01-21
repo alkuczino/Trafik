@@ -10,8 +10,9 @@ class Map {
 public:
 	Map();
 	void addArrayItem(int x,int y,int type);
-private:
 	int array_[32][24];
+private:
+	
 	
 
 };

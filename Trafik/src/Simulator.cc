@@ -114,6 +114,113 @@ void Simulator::addRoadVerticalToMap(int x, int y)
 	map_->addArrayItem(x / 40 - 1, y / 40 + 2, PAVEMENT);
 }
 
+QList<QPointF> Simulator::calculatePath(Car* car, QPointF p)
+{
+	QList<QPointF> out;
+	int destX = p.x()/40-1;
+	int destY = p.y()/40-1;
+
+	int tmpX = car->x() / 40-1;
+	int tmpY = car->y() / 40-1;
+	int startX = tmpX;
+	int startY = tmpY;
+	int tmpArray[32][24];
+	for (int i = 0; i < 32; ++i) {
+		for (int j = 0; j < 24; ++j) {
+			tmpArray[i][j] = map_->array_[i][j];
+		}
+	}
+
+	tmpArray[tmpX][tmpY] = 0;
+	std::list<std::tuple<int, int>> pointsToCheck;
+	pointsToCheck.push_back(std::make_tuple(tmpX, tmpY));
+	std::list<std::tuple<int, int>> checkedList;
+	
+	int step = 1;
+
+	bool checked = false;
+	bool done = false;
+	while (std::get<0>(pointsToCheck.back()) != destX || std::get<1>(pointsToCheck.back()) != destY) {
+
+		int count = 0;
+		++step;
+		tmpX = std::get<0>(pointsToCheck.back());
+		tmpY = std::get<1>(pointsToCheck.back());
+		for (int i = -1; i < 2; ++i) {
+			if (done)break;
+			
+			for (int j = -1; j < 2; ++j) {
+				if (!checkedList.empty()) {
+					checked = std::count(checkedList.begin(), checkedList.end(), std::make_tuple(tmpX + i, tmpY + j));
+				}
+				if (!checked)
+					if (tmpX + i > 0 && tmpY + j > 0 && tmpX + i < 32 && tmpY + j < 24) {
+
+
+						if (tmpArray[tmpX + i][tmpY + j] > 0) {
+							if ((tmpX + i) == destX && (tmpY + j) == destY) {
+								tmpArray[tmpX + i][tmpY + j] += step;
+								pointsToCheck.push_back(std::tuple<int, int>(tmpX + i, tmpY + j));
+								done = true;
+								break;
+							}
+							if (tmpArray[tmpX + i][tmpY + j] < 3) {
+							tmpArray[tmpX + i][tmpY + j] += step;
+							pointsToCheck.push_back(std::tuple<int, int>(tmpX + i, tmpY + j));
+						}
+							++count;
+						}
+					}
+
+			}
+		}
+			if (!count) {
+				tmpArray[tmpX][tmpY] = 0;
+				pointsToCheck.pop_back();
+			checkedList.push_back(std::tuple<int, int>(tmpX, tmpY));
+		}
+	}
+
+	
+	done = false;
+	std::list<std::tuple<int, int>> pointsToGoal;
+	pointsToGoal.push_back(std::make_tuple(destX, destY));
+	step = 1;
+	while (std::get<0>(pointsToGoal.back()) != startX || std::get<1>(pointsToGoal.back()) != startY) {
+
+		int count = 0;
+		tmpX = std::get<0>(pointsToGoal.back());
+		tmpY = std::get<1>(pointsToGoal.back());
+		for (int i = -1; i < 2; ++i) {
+			if (!done) {
+				for (int j = -1; j < 2; ++j) {
+					if (tmpX + i > 0 && tmpY + j > 0 && tmpX + i < 32 && tmpY + j < 24) {
+						if (tmpX + i == startX && tmpY + j == startY) {
+							done = true;
+							pointsToGoal.push_back(std::make_tuple(tmpX + i, tmpY + j));
+							break;
+						}
+						if (tmpArray[tmpX + i][tmpY + j] == (tmpArray[destX][destY] - step)) {
+							pointsToGoal.push_back(std::make_tuple(tmpX + i, tmpY + j));
+							++count;
+							++step;
+						}
+					}
+				}
+			}
+			/*if (!count) {
+				tmpArray[tmpX][tmpY] = 0;*/
+			//}
+		}
+	}
+
+	for (std::list<std::tuple<int,int>>::iterator iter = pointsToGoal.begin(); iter != pointsToGoal.end(); ++iter)
+	{
+		out.push_front(QPointF(std::get<0>(*iter)*40, std::get<1>(*iter)*40));
+	}
+
+	return out;
+}
 
 void Simulator::setJunctionClicked(bool boolean)
 {
@@ -137,11 +244,30 @@ void Simulator::mouseReleaseEvent(QMouseEvent * event)
 			{
 				if (event->x() - tmpRoad_->x() > ROAD_WIDTH / 2) {
 					tmpCar_ = new Car(tmpRoad_->x() + ROAD_WIDTH / 2, tmpRoad_->y(), 2, 2);
+					//tmpCar_->setPath(calculatePath(tmpCar_,QPointF(1000, 440)));
 					getScene()->addItem(tmpCar_);
 				}
 				else
 				{
 					tmpCar_ = new Car(tmpRoad_->x(), tmpRoad_->y(), 2, 2);
+					//tmpCar_->setPath(calculatePath(tmpCar_, QPointF(1000, 440)));
+					
+					getScene()->addItem(tmpCar_);
+				}
+			}
+
+			if (tmpRoadVertical_ = qgraphicsitem_cast<RoadVertical *>(item_))
+			{
+				if (event->y() - tmpRoadVertical_->y() > ROAD_VERTICAL_HEIGHT / 2) {
+					tmpCar_ = new Car(tmpRoadVertical_->x() + ROAD_VERTICAL_WIDTH / 2, tmpRoadVertical_->y()+ROAD_VERTICAL_HEIGHT/2, 2, 2);
+					//tmpCar_->setPath(calculatePath(tmpCar_, QPointF(1000, 440)));
+					getScene()->addItem(tmpCar_);
+				}
+				else
+				{
+					tmpCar_ = new Car(tmpRoadVertical_->x(), tmpRoadVertical_->y(), 2, 2);
+					//tmpCar_->setPath(calculatePath(tmpCar_, QPointF(1000, 440)));
+
 					getScene()->addItem(tmpCar_);
 				}
 			}

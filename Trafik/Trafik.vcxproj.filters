@@ -150,4 +150,8 @@
     <Image Include="Resources\car.png" />
     <Image Include="Resources\road.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="tragedia.pri" />
+    <None Include="Trafik.pro" />
+  </ItemGroup>
 </Project>

@@ -152,6 +152,10 @@
     <Image Include="Resources\car.png" />
     <Image Include="Resources\road.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Trafik.pro" />
+    <None Include="tragedia.pri" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

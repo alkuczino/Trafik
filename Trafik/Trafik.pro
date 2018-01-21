@@ -16,4 +16,4 @@ MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
-include(Trafik.pri)
+include(tragedia.pri)
